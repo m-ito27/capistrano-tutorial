@@ -29,6 +29,9 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 # Unicornの設定ファイルの指定
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
+# ブランチ指定
+set :branch, 'main'
+
 # Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
