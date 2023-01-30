@@ -32,6 +32,8 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 # ブランチ指定
 set :branch, 'main'
 
+append :linked_files, 'config/credentials/production.key'
+
 # Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
